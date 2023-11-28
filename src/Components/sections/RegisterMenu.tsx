@@ -23,33 +23,36 @@ export const RegisterMenu = () => {
   };
 
   return (
-    <div className="flex flex-col items-center mx-auto w-full max-w-[400px] my-10 gap-4 shadow-2xl p-10">
-      <p>Cadastro de Prato</p>
+    <div className="flex flex-col items-center justify-center mx-auto w-full max-w-[38rem] my-10 gap-4 shadow-2xl p-10 rounded-3xl">
+      <p className="text-4xl mb-10">Cadastro de Prato</p>
 
-      <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="flex flex-col gap-6 w-[32rem]"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <input
-          className="border border-[#E0E0E0]"
+          className="border border-[#E0E0E0] p-3"
           placeholder="Nome do Prato"
           {...register("title")}
         />
         <input
-          className="border border-[#E0E0E0]"
+          className="border border-[#E0E0E0] p-3"
           placeholder="Valor do Prato"
           {...register("price")}
         />
         <input
-          className="border border-[#E0E0E0]"
+          className="border border-[#E0E0E0] p-3"
           placeholder="Imagem  do Prato"
           {...register("image")}
         />
-        <input
-          className="border border-[#E0E0E0]"
+        <textarea
+          className="border border-[#E0E0E0] p-3 pb-20"
           placeholder="Descrição do Prato"
           {...register("description")}
         />
 
         <button
-          className="bg-[#FF9F0D] text-white p-2 text-lg rounded-2xl"
+          className="bg-[#FF9F0D] text-white p-2 text-lg rounded-2xl w-[32rem]"
           type="submit"
         >
           Cadastrar Prato
