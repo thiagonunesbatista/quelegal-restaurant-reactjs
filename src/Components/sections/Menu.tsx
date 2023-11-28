@@ -17,17 +17,17 @@ export const Menu = ({ items }: MenuProps) => {
   const onCloseModal = () => setOpen(false);
 
   return (
-    <section className='grid grid-cols-3 my-10 gap-10'>
+    <section className='flex flex-wrap justify-center my-10 gap-10'>
       {items.map((current: MenuItems, index) => (
         <div
           key={index}
-          className='flex justify-center border border-black gap-5 rounded-xl w-96 h-48 items-center'
+          className='justify-between border border-black gap-5 rounded-xl w-96 h-48 flex p-5 items-center'
         >
           <img
             src={current.image}
             width={150}
-            height={200}
-            className='rounded-3xl'
+            height={150}
+            className='rounded-3xl object-cover w-[150px] h-[150px]'
           />
           <div className='flex flex-col gap-2'>
             <h2 className='text-xl font-medium'>{current.title}</h2>
