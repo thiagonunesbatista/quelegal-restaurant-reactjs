@@ -3,23 +3,21 @@ import { useForm } from 'react-hook-form';
 // import { Input } from '../Input';
 
 export const RegisterMenu = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, reset, handleSubmit } = useForm();
 
   const onSubmit = (data: any) => {
-    console.log(data);
-
     const currentSaved = localStorage.getItem('added-menu');
 
     if (currentSaved) {
       const transformed = JSON.parse(currentSaved);
-      console.log('transformed');
-      console.log(transformed);
 
       transformed.push(data);
       localStorage.setItem('added-menu', JSON.stringify(transformed));
     } else {
       localStorage.setItem('added-menu', JSON.stringify([data]));
     }
+
+    reset();
   };
 
   return (
