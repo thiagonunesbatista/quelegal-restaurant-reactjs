@@ -2,7 +2,7 @@ import { createServer } from 'miragejs';
 import { useEffect, useState } from 'react';
 
 import { Hero, Footer, Navbar, Loader } from './Components';
-import { Menu, Offers, Statistics } from './Components/sections';
+import { Menu, Offers, RegisterMenu, Statistics } from './Components/sections';
 
 createServer({
   routes() {
@@ -43,9 +43,18 @@ const App = () => {
       fetch('/api/menu')
         .then(response => response.json())
         .then(json => {
-          setMenuList(json);
-          console.log('json');
-          console.log(json);
+          let dataToStore = json;
+
+          const currentSaved = localStorage.getItem('added-menu');
+
+          if (currentSaved) {
+            const transformed = JSON.parse(currentSaved);
+            console.log('transformed');
+            console.log(transformed);
+            dataToStore = dataToStore.concat(transformed);
+          }
+
+          setMenuList(dataToStore);
         })
         .finally(() => setIsLoadig(false));
     };
@@ -59,6 +68,8 @@ const App = () => {
       <Hero />
       <Offers />
       <Statistics />
+
+      <RegisterMenu />
 
       <Menu items={menuList} />
 
