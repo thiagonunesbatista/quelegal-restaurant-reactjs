@@ -21,16 +21,37 @@ export const RegisterMenu = () => {
   };
 
   return (
-    <div className='flex flex-col mx-auto w-full max-w-[400px] my-10'>
+    <div className='flex flex-col items-center mx-auto w-full max-w-[400px] my-10 gap-4 shadow-2xl p-10'>
       <p>Cadastro de Prato</p>
 
-      <form className='flex flex-col gap-4' onSubmit={handleSubmit(onSubmit)}>
-        <input placeholder='Nome do Prato' {...register('title')} />
-        <input placeholder='Valor do Prato' {...register('price')} />
-        <input placeholder='Imagem  do Prato' {...register('image')} />
-        <input placeholder='Descrição do Prato' {...register('description')} />
+      <form className='flex flex-col gap-6' onSubmit={handleSubmit(onSubmit)}>
+        <input
+          className='border border-[#E0E0E0]'
+          placeholder='Nome do Prato'
+          {...register('title')}
+        />
+        <input
+          className='border border-[#E0E0E0]'
+          placeholder='Valor do Prato'
+          {...register('price')}
+        />
+        <input
+          className='border border-[#E0E0E0]'
+          placeholder='Imagem  do Prato'
+          {...register('image')}
+        />
+        <input
+          className='border border-[#E0E0E0]'
+          placeholder='Descrição do Prato'
+          {...register('description')}
+        />
 
-        <button type='submit'>Cadastrar</button>
+        <button
+          className='bg-[#FF9F0D] text-white p-2 text-lg rounded-2xl'
+          type='submit'
+        >
+          Cadastrar Prato
+        </button>
       </form>
     </div>
   );
