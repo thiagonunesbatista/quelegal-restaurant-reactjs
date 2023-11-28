@@ -1,11 +1,14 @@
-import { Hero, Footer, Navbar } from "./Components";
+import { Hero, Footer, Navbar } from './Components';
+import { Offers, Statistics } from './Components/sections';
 
 const App = () => {
   return (
     <>
       <Navbar />
-      <Footer />
       <Hero />
+      <Offers />
+      <Statistics />
+      <Footer />
     </>
   );
 };

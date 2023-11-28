@@ -8,7 +8,11 @@ export default {
       },
       colors: {
         primary: '#EDD05F',
-        secondary: '#292E36'
+        secondary: '#292E36',
+        'black-transparent-80': 'rgba(0, 0, 0, 0.8)'
+      },
+      backgroundImage: {
+        beef: "url('./src/assets/backgrounds/beef.png')"
       }
     }
   },
