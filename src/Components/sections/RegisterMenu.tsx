@@ -1,8 +1,11 @@
 import { useForm } from 'react-hook-form';
 
 // import { Input } from '../Input';
+type types = {
+  onAdd: () => void;
+};
 
-export const RegisterMenu = () => {
+export const RegisterMenu = ({ onAdd }: types) => {
   const { register, reset, handleSubmit } = useForm();
 
   const onSubmit = (data: any) => {
@@ -16,7 +19,7 @@ export const RegisterMenu = () => {
     } else {
       localStorage.setItem('added-menu', JSON.stringify([data]));
     }
-
+    onAdd();
     reset();
   };
 

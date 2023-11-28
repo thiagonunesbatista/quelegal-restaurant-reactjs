@@ -36,29 +36,29 @@ const App = () => {
   const [menuList, setMenuList] = useState([]);
   const [isLoading, setIsLoadig] = useState(false);
 
+  const loadData = () => {
+    setIsLoadig(true);
+
+    fetch('/api/menu')
+      .then(response => response.json())
+      .then(json => {
+        let dataToStore = json;
+
+        const currentSaved = localStorage.getItem('added-menu');
+
+        if (currentSaved) {
+          const transformed = JSON.parse(currentSaved);
+          console.log('transformed');
+          console.log(transformed);
+          dataToStore = dataToStore.concat(transformed);
+        }
+
+        setMenuList(dataToStore);
+      })
+      .finally(() => setIsLoadig(false));
+  };
+
   useEffect(() => {
-    const loadData = () => {
-      setIsLoadig(true);
-
-      fetch('/api/menu')
-        .then(response => response.json())
-        .then(json => {
-          let dataToStore = json;
-
-          const currentSaved = localStorage.getItem('added-menu');
-
-          if (currentSaved) {
-            const transformed = JSON.parse(currentSaved);
-            console.log('transformed');
-            console.log(transformed);
-            dataToStore = dataToStore.concat(transformed);
-          }
-
-          setMenuList(dataToStore);
-        })
-        .finally(() => setIsLoadig(false));
-    };
-
     loadData();
   }, []);
 
@@ -69,7 +69,7 @@ const App = () => {
       <Offers />
       <Statistics />
 
-      <RegisterMenu />
+      <RegisterMenu onAdd={loadData} />
 
       <Menu items={menuList} />
 
