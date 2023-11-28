@@ -41,7 +41,7 @@ export const Menu = ({ items }: MenuProps) => {
             </h2>
           </div>
           <Modal open={open} onClose={onCloseModal}>
-            <div>
+            <div className='min-w-[300px] py-8'>
               <h2>{currentDescription}</h2>
             </div>
           </Modal>
