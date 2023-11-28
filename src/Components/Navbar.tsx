@@ -24,7 +24,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#292E36]">
+    <nav className="bg-[#292E36] border-b-4 border-[#edd05f]">
       <Container className="grid grid-cols-3 h-20 items-center sticky top-0 max-md:grid-cols-2">
         <h1 className="text-white font-roadrage text-5xl ml-5 max-sm:text-4xl">
           QUE <span className="text-[#edd05f]">LEGAL!</span>
